@@ -22,12 +22,12 @@ app.controller('searchController', function($scope, beerService){
     }
 
 });
-
+// ?key=acacd14c7d296235ee91b5bcea5e64ed
 
 app.factory('beerService', function($http){
     service={};
     service.getBeer = function(searchTerm){
-        $http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&order=viewCount&publishedAfter=2015-01-01T00%3A00%3A00Z&publishedBefore=2015-12-31T00%3A00%3A00Z&q=beer&type=video&videoCategoryId=10&videoDuration=short&videoSyndicated=true&key=AIzaSyAcH5lbBeE0d_PovUz8XHtSj2dNvEzTauY').success(function(response){
+        $http.get('http://api.brewerydb.com/v2/?key=acacd14c7d296235ee91b5bcea5e64ed/search?q=Goosinator&type=beer').success(function(response){
             console.log(response);
         })
     }
