@@ -11,3 +11,5 @@ app.listen(process.env.PORT || 5000);
 app.get("*", function(req, res) {
   res.sendfile('./index.html'); //load single view file
 });
+
+console.log('success')
