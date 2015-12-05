@@ -1,0 +1,23 @@
+Priorities:
+1) 3 views
+	- Login page
+	- Search page
+	- List page
+	- Profile page
+2) Login page: sign in/sign up
+3) Search page: Search bar, footer with the 'about content', harvest data from API(http://www.brewerydb.com/) to yield the following pages
+4) List page: 10 results for the parameter searched, each result is link to that beer's profile
+5) Beer profile page: Picture of the beer, description of the beer, ratings, links to social media, {checking in(foursquare, twitter?)}, similar beer suggestions(5?)
+
+
+Timeline:
+12/5 - API = successfully pull data, HTML files made
+12/7 - Controllers and routes with a factory
+12/8 - 
+12/9 -
+12/10 - Internal MVP by today
+12/12 - External MVP due date, start to work on bells and whistles
+12/14 - 
+12/15 - GC endorsement
+12/16
+***12/18 Demo Day***

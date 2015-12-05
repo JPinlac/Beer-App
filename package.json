@@ -1,0 +1,19 @@
+{
+  "name": "cheers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/der-Racker/Beer-App.git"
+  },
+  "author": "BCJR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/der-Racker/Beer-App/issues"
+  },
+  "homepage": "https://github.com/der-Racker/Beer-App#readme"
+}
