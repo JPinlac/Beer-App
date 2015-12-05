@@ -20,7 +20,6 @@ app.controller('searchController', function($scope, beerService){
     $scope.submitSearch = function(searchTerm) {
         beerService.getBeer(searchTerm);
     }
-
 });
 
 
