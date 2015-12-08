@@ -1,8 +1,8 @@
-# Cheers
 Final Grand Circus Project
+
 Informative mobile focused beer application with social media aspects.
 
-High-Level Priorities – Complete by 12/10/15
+<br><b>High-Level Priorities – Complete by 12/10/15</b>
 
   4 Views – Complete by 12/7/15
   
@@ -35,7 +35,8 @@ High-Level Priorities – Complete by 12/10/15
   
   •	Share
 
-Mid-Level Priorities – Complete by 12/12/15
+
+<br><b>Mid-Level Priorities – Complete by 12/12/15</b>
 
   •	Search Page
  
@@ -51,7 +52,7 @@ Mid-Level Priorities – Complete by 12/12/15
  
   •	Tumblr
 
-Low-Level Priorities – Complete by 12/15/15
+<br><b>Low-Level Priorities – Complete by 12/15/15</b>
 
   •	Search Page
  
