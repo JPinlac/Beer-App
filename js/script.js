@@ -25,8 +25,9 @@ app.controller('searchController', function($scope, beerService){
 app.factory('beerService', function($http){
     service={};
     service.getBeer = function(searchTerm){
-        $http.get('http://api.brewerydb.com/v2/?key=acacd14c7d296235ee91b5bcea5e64ed/search?q=Goosinator&type=beer').success(function(response){
-            console.log(response);
+        $http.get('/test').success(function(response){
+            var res = response;
+            console.log(res)
         })
     }
     return service;
