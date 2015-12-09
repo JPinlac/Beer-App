@@ -27,9 +27,26 @@ app.controller('searchController', function($scope, beerService){
 app.factory('beerService', function($http){
     service={};
     service.getBeer = function(searchTerm){
-        $http.get('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&order=viewCount&publishedAfter=2015-01-01T00%3A00%3A00Z&publishedBefore=2015-12-31T00%3A00%3A00Z&q=beer&type=video&videoCategoryId=10&videoDuration=short&videoSyndicated=true&key=AIzaSyAcH5lbBeE0d_PovUz8XHtSj2dNvEzTauY').success(function(response){
+        $http.get(' http://api.brewerydb.com/v2/?key=acacd14c7d296235ee91b5bcea5e64ed').success(function(response){
             console.log(response);
         })
     }
     return service;
+});
+
+angular.module('ui.bootstrap.demo').controller('CarouselDemoCtrl', function ($scope) {
+  $scope.myInterval = 5000;
+  $scope.noWrapSlides = false;
+  var slides = $scope.slides = [];
+  $scope.addSlide = function() {
+    var newWidth = 600 + slides.length + 1;
+    slides.push({
+      image: '//placekitten.com/' + newWidth + '/300',
+      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+    });
+  };
+  for (var i=0; i<4; i++) {
+    $scope.addSlide();
+  }
 });
