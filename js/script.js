@@ -21,7 +21,6 @@ app.controller('searchController', function($scope, beerService){
         beerService.getBeer(searchTerm);
     }
 });
-// ?key=acacd14c7d296235ee91b5bcea5e64ed
 
 app.factory('beerService', function($http){
     service={};
