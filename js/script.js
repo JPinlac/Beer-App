@@ -6,9 +6,9 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/search.html',
             controller: 'searchController'
         })
-        .when('/results', {
-            templateUrl: 'partials/results.html',
-            controller: 'resultsController'
+        .when('/list', {
+            templateUrl: 'partials/list.html',
+            controller: 'listController'
         })
         .otherwise({
             redirectTo: '/'
@@ -22,12 +22,22 @@ app.controller('searchController', function($scope, beerService){
     }
 });
 
+app.controller('listController', function($scope, beerService){
+    $scope.list=beerService.list
+    
+});
+
 app.factory('beerService', function($http){
     service={};
+    service.list=[];
     service.getBeer = function(searchTerm){
+        console.log("What!!!")
         var obj = {beer: searchTerm}
         $http.get('/test', {params:obj}).success(function(response){
             var res = response;
+            for (var i = 0; i < 10; i++) {
+                service.list[i]=res.data[i].name
+            };
             console.log(res)
         })
     }
