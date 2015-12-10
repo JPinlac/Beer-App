@@ -25,7 +25,8 @@ app.controller('searchController', function($scope, beerService){
 app.factory('beerService', function($http){
     service={};
     service.getBeer = function(searchTerm){
-        $http.get('/test').success(function(response){
+        var obj = {beer: searchTerm}
+        $http.get('/test', {params:obj}).success(function(response){
             var res = response;
             console.log(res)
         })
