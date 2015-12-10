@@ -1,8 +1,4 @@
-styles.css
 
-body {
-	baground-color: #DEB887;
-}
 
 
 .carousel-inner > .item > img,
@@ -11,3 +7,16 @@ body {
       margin: auto;
   }
 
+border-radius() {
+   -webkit-border-radius: arguments;
+   -moz-border-radius: arguments;
+   border-radius: arguments;
+ }
+
+ body a {
+   font: 12px/1.4 "Lucida Grande", Arial, sans-serif;
+   background: green;
+   color: #DEB887;
+   margin-left: 90px;
+   margin-right: 90px;
+ }
