@@ -27,11 +27,7 @@ body {
   /*background-image: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg");*/
   background-color: #A0522D;
 }
-.carousel-inner {
-  height: 400px;
-  width: 1024px;
-}
 .carouselpics {
-  height: 300px;
-  width: 900px;
+  height: 200px;
+  width: 500px;
 }
