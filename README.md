@@ -30,6 +30,6 @@ __Mid-Level Priorities – Complete by 12/12/15__
   *	Tumblr  
 
 __Low-Level Priorities – Complete by 12/15/15__  
-  •	Search Page  
-  •	Beer Roulette  
-  •	Beer-Drinker Levels
+  *	Search Page  
+  *	Beer Roulette  
+  *	Beer-Drinker Levels
