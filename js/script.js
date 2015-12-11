@@ -34,6 +34,7 @@ app.controller('listController', function($scope, beerService){
 app.factory('beerService', function($http){
     service={};
     service.list=[];
+    service.selectedBeer= new beer("Jon's sauce", 'So good it\'s amazing', 'bucket', '45%', '');
 
     function beer(name, description, glass, abv, label){
         this.name = name;
