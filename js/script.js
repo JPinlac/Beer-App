@@ -24,7 +24,7 @@ app.controller('searchController', function($scope, beerService){
 
 app.controller('listController', function($scope, beerService){
     $scope.list=beerService.list
-    
+
 });
 
 app.factory('beerService', function($http){
