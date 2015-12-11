@@ -8,7 +8,7 @@ var concat = require('concat-stream');
 
 app.get('/test', function(req, res){
     var q = req.query.beer;
-    console.log(q);
+
     http.get('http://api.brewerydb.com/v2/search?q='+q+'&type=beer&key=acacd14c7d296235ee91b5bcea5e64ed', function(response){
         response.pipe(concat(function(data){
             res.json(JSON.parse(data));
