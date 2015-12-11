@@ -10,6 +10,10 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/list.html',
             controller: 'listController'
         })
+        .when('/beer', {
+            templateUrl: 'partials/beer.html',
+            controller: 'listController'
+        })
         .otherwise({
             redirectTo: '/'
         });
