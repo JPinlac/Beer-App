@@ -7,7 +7,7 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'searchController'
         })
         .when('/results', {
-            templateUrl: 'partials/results.html',
+            templateUrl: 'partials/list.html',
             controller: 'resultsController'
         })
         .otherwise({
