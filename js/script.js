@@ -49,41 +49,23 @@ app.factory('beerService', function($http){
         $http.get('/test', {params:obj}).success(function(response){
 
             var numBeers = 0;
+            var valueList = {
+                'name': response.data[numBeers].name,
+                'description':response.data[numBeers].description,
+                'glass':response.data[numBeers].glass.name,
+                'abv':response.data[numBeers].abv,
+                'label':response.data[numBeers].labels.medium
+            }
+            
             while(numBeers<10 && numBeers < response.data.length){
-                console.log(numBeers)
-                if(response.data[numBeers].hasOwnProperty('name')){
-                    var newName = response.data[numBeers].name;
-                }
-                else{
-                    var newName = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('description')){
-                    var newDesc = response.data[numBeers].description;
-                }
-                else{
-                    var newDesc = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('glass')){
-                    var newGlass = response.data[numBeers].glass.name;
-                }
-                else{
-                    var newGlass = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('abv')){
-                    var newAbv = response.data[numBeers].abv;
-                }
-                else{
-                    var newAbv = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('labels')){
-                    var newLabel = response.data[numBeers].labels.medium;
-                }
-                else{
-                    var newLabel = '';
+
+                var newBeer = new beer('', '', '', '', '');
+                for(attr in newBeer){
+                    if(response.data[numBeers].hasOwnProperty(attr)){
+                        newBeer[attr]=valueList[attr];
+                    }
                 }
 
-
-                var newBeer = new beer(newName, newDesc, newGlass, newAbv, newLabel);
                 service.list[numBeers]=newBeer;
                 numBeers++;
             };
