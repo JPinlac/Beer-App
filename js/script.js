@@ -31,12 +31,13 @@ app.factory('beerService', function($http){
     service={};
     service.list=[];
     service.getBeer = function(searchTerm){
-        console.log("What!!!")
         var obj = {beer: searchTerm}
         $http.get('/test', {params:obj}).success(function(response){
             var res = response;
-            for (var i = 0; i < 10; i++) {
-                service.list[i]=res.data[i].name
+            var numBeers = 0;
+            while(numBeers<10 && numBeers < res.data.length){
+                service.list[numBeers]=res.data[numBeers].name;
+                numBeers++;
             };
             console.log(res)
         })
