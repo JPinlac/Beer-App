@@ -27,7 +27,7 @@ app.controller('searchController', function($scope, beerService){
 });
 
 app.controller('listController', function($scope, beerService){
-     $scope.submitSearch2 = function(searchTerm,amount2, beer) {
+     $scope.submitSearch = function(searchTerm,amount2, beer) {
         beerService.setSelectedBeer(beer);
         beerService.getBeer(searchTerm,amount2);
     }
