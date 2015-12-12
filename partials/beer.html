@@ -2,15 +2,19 @@
   <a href="#/list">Back to Results</a>
 
   <div class="row">
-    <div class="col-md-6" id="picture">{{selectedBeer.label}}</div>
-    <div class="col-md-6" id="description">{{selectedBeer.description}}</div>
+    <div class="col-md-6" id="picture"><img ng-src="{{selectedBeer.labels.medium}}"></div>
+    <div class="col-md-6" id="specs">
+      <ul>
+        <li id="name">{{selectedBeer.name}}</li>
+        <li id="abv">{{selectedBeer.abv}}</li>
+        <li id="glass">{{selectedBeer.glass}}</li>
+        <li id="style">{{selectedBeer.style}}</li>
+      </ul>
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-md-4" id="name">{{selectedBeer.name}}</div>
-    <div class="col-md-4" id="abv">{{selectedBeer.abv}}</div>
-    <div class="col-md-4" id="glass">{{selectedBeer.glass}}</div>
-    <div class="col-md-4" id="glass">{{selectedBeer.style}}</div>
+    <div class="col-md-12" id="description">{{selectedBeer.description}}</div>
   </div>
 
   <ul>
