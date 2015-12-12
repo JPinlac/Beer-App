@@ -41,30 +41,36 @@ app.factory('beerService', function($http){
     service.list=[];
     service.selectedBeer= new beer("Jon's sauce", 'So good it\'s amazing', 'bucket', '45%', '');
 
-    function beer(name, description, glass, abv, label){
+    function beer(name, description, glass, abv, label, style){
         this.name = name;
         this.description = description;
         this.glass = glass;
         this.abv = abv;
         this.label = label;
+        this.style = style;
     }
 
     service.getBeer = function(searchTerm){
+        // Queries backend node server for list of beers
+        // Adds resulting list to the service list pulling out relevant data
+        //
+        //
         var obj = {beer: searchTerm}
-        $http.get('/test', {params:obj}).success(function(response){
-
+        $http.get('/search', {params:obj}).success(function(response){
+            console.log(response)
             var numBeers = 0;
-            
-            while(numBeers<10 && numBeers < response.data.length){
-
-                var newBeer = new beer('', '', '', '', '');
-                var valueList = {
+            var valueList = {
                     'name': 'response.data[numBeers].name',
                     'description':'response.data[numBeers].description',
                     'glass':'response.data[numBeers].glass.name',
                     'abv':'response.data[numBeers].abv',
-                    'label':'response.data[numBeers].labels.medium'
+                    'label':'response.data[numBeers].labels.medium',
+                    'style': 'response.data[numBeers].style.shortName'
                 };
+
+            while(numBeers<10 && numBeers < response.data.length){
+
+                var newBeer = new beer('', '', '', '', '', '');
 
                 for(attr in valueList){
                     if(response.data[numBeers].hasOwnProperty(attr)){
@@ -75,7 +81,6 @@ app.factory('beerService', function($http){
                 service.list[numBeers]=newBeer;
                 numBeers++;
             };
-            console.log(service.list)
         })
 
         service.setSelectedBeer = function(beer){

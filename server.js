@@ -6,7 +6,7 @@ var app = express();
 var request = require('request');
 var concat = require('concat-stream');
 
-app.get('/test', function(req, res){
+app.get('/search', function(req, res){
     var q = req.query.beer;
 
     http.get('http://api.brewerydb.com/v2/search?q='+q+'&type=beer&key=acacd14c7d296235ee91b5bcea5e64ed', function(response){
