@@ -54,7 +54,16 @@ app.factory('beerService', function($http){
         $http.get('/test', {params:obj}).success(function(response){
 
             var numBeers = 0;
+            var valueList = {
+                'name': response.data[numBeers].name,
+                'description':response.data[numBeers].description,
+                'glass':response.data[numBeers].glass.name,
+                'abv':response.data[numBeers].abv,
+                'label':response.data[numBeers].labels.medium
+            }
+            
             while(numBeers<10 && numBeers < response.data.length){
+<<<<<<< HEAD
 
                 if(response.data[numBeers].hasOwnProperty('name')){
                     var newName = response.data[numBeers].name;
@@ -86,9 +95,16 @@ app.factory('beerService', function($http){
                 else{
                     var newLabel = '';
                 }
+=======
+>>>>>>> e4b1c44d76e5a4001df6d6e231884f74ab1f4faa
 
+                var newBeer = new beer('', '', '', '', '');
+                for(attr in newBeer){
+                    if(response.data[numBeers].hasOwnProperty(attr)){
+                        newBeer[attr]=valueList[attr];
+                    }
+                }
 
-                var newBeer = new beer(newName, newDesc, newGlass, newAbv, newLabel);
                 service.list[numBeers]=newBeer;
                 numBeers++;
             };
