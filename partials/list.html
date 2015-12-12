@@ -6,7 +6,7 @@
   <h3>Your Beers</h3>
   <div>
     <ul>
-        <a href="#/beer"><li ng-repeat="item in list">{{item}}</li></a>
+        <a href="#/beer"><li ng-repeat="item in list" ng-click="selectBeer(item)">{{item.name}}</li></a>
     </ul>
   </div>
 
