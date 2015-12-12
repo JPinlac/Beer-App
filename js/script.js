@@ -19,7 +19,6 @@ app.config(['$routeProvider', function($routeProvider){
         });
 }]);
 
-
 app.controller('searchController', function($scope, beerService){
     $scope.submitSearch = function(searchTerm) {
         beerService.getBeer(searchTerm);
@@ -64,13 +63,13 @@ app.factory('beerService', function($http){
                     'description':'response.data[numBeers].description',
                     'glass':'response.data[numBeers].glass.name',
                     'abv':'response.data[numBeers].abv',
-                    'label':'response.data[numBeers].labels.medium',
+                    'labels':'response.data[numBeers].labels.medium',
                     'style': 'response.data[numBeers].style.shortName'
                 };
 
             while(numBeers<10 && numBeers < response.data.length){
 
-                var newBeer = new beer('', '', '', '', '', '');
+                var newBeer = new beer('', 'No Description Provided', 'Pint', 'None Provided', 'None Provided', '');
 
                 for(attr in valueList){
                     if(response.data[numBeers].hasOwnProperty(attr)){
