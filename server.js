@@ -5,6 +5,7 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var concat = require('concat-stream');
+var stormpath = require('stormpath');
 
 app.get('/test', function(req, res){
     var q = req.query.beer;
