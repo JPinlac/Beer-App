@@ -1,27 +1,27 @@
 #picture {
-  background-color: blue;
+  /*background-color: blue;
   height: 50px;
-  width: 50px;
+  width: 50px;*/
 }
 #description {
-  background-color: green;
-  height: 50px;
-  width: 50px;
+  /*background-color: green;*/
+  /*height: 50px;
+  width: 50px;*/
 }
 #name {
-  background-color: red;
-  height: 50px;
-  width: 50px;
+  /*background-color: red;*/
+  /*height: 50px;
+  width: 50px;*/
 }
 #abv {
-  background-color: yellow;
-  height: 50px;
-  width: 50px;
+  /*background-color: yellow;*/
+  /*height: 50px;
+  width: 50px;*/
 }
 #glass {
-  background-color: orange;
-  height: 50px;
-  width: 50px;
+  /*background-color: orange;*/
+  /*height: 50px;
+  width: 50px;*/
 }
 body {
   /*background-image: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg");*/
