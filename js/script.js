@@ -46,7 +46,7 @@ app.factory('beerService', function($http){
         this.description = description;
         this.glass = glass;
         this.abv = abv;
-        this.labels = labels.medium;
+        this.labels = labels;
         this.style = style;
     }
 
