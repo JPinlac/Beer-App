@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var concat = require('concat-stream');
-var stormpath = require('stormpath');
+var stormpath = require('express-stormpath');
 
 app.get('/search', function(req, res){
     var q = req.query.beer;
@@ -17,8 +17,16 @@ app.get('/search', function(req, res){
     });
 });
 
+app.use(stormpath.init(app, {
+    website: true
+}))
+
 app.use(express.static(__dirname + '/'));
-app.listen(8888);
+
+app.on('stormpath.ready', function() {
+    app.listen(8888);
+})
+
 app.get("/", function(req, res) {
   res.sendfile('./index.html'); //load single view file
 });

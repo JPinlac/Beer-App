@@ -10,6 +10,7 @@
     "cors": "^2.7.1",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
+    "express-stormpath": "^2.3.3",
     "frisby": "^0.8.5",
     "jasmine-node": "^1.14.5",
     "mongodb": "^2.1.0",
