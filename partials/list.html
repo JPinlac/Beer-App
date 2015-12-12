@@ -1,12 +1,12 @@
 <body class="beerpic">
 <div class="container">
-  <a href="#/"><button type="button" class="btn">Back to Results</button>
+  <a href="#/"><button type="button" class="btn">Back to Results</button></a>
   	</div>
 
   <h3>Your Beers</h3>
   <div>
     <ul>
-        <a href="#/beer" ng-repeat="item in list" ng-click="selectBeer(item)"><li>{{item.name}}</li></a>
+        <a href="#/beer" ng-repeat="item in list" ng-click="submitSearch2(item.style,3,item)"><li>{{item.name}}</li></a>
     </ul>
   </div>
 

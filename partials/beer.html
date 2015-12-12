@@ -17,7 +17,7 @@
     <div class="col-md-12" id="description">{{selectedBeer.description}}</div>
   </div>
 
-  <ul>
-    <li>Similar Beers</li>
+  <ul>Similar Beers
+    <li ng-repeat="item in list">{{item.name}}</li>
   </ul>
 </body>
