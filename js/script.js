@@ -28,6 +28,11 @@ app.controller('searchController', function($scope, beerService){
 
 app.controller('listController', function($scope, beerService){
     $scope.list=beerService.list;
+    $scope.selectedBeer = beerService.selectedBeer;
+    $scope.selectBeer = function(beer) {
+        beerService.setSelectedBeer(beer);
+        console.log(beer)
+    }
 
 });
 
@@ -50,7 +55,7 @@ app.factory('beerService', function($http){
 
             var numBeers = 0;
             while(numBeers<10 && numBeers < response.data.length){
-                console.log(numBeers)
+
                 if(response.data[numBeers].hasOwnProperty('name')){
                     var newName = response.data[numBeers].name;
                 }
@@ -89,6 +94,10 @@ app.factory('beerService', function($http){
             };
             console.log(service.list)
         })
+
+        service.setSelectedBeer = function(beer){
+            service.selectedBeer = beer;
+        }
     }
     return service;
 });
