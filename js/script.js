@@ -28,6 +28,11 @@ app.controller('searchController', function($scope, beerService){
 
 app.controller('listController', function($scope, beerService){
     $scope.list=beerService.list;
+    $scope.selectedBeer = beerService.selectedBeer;
+    $scope.selectBeer = function(beer) {
+        beerService.setSelectedBeer(beer);
+        console.log(beer)
+    }
 
 });
 
@@ -36,59 +41,51 @@ app.factory('beerService', function($http){
     service.list=[];
     service.selectedBeer= new beer("Jon's sauce", 'So good it\'s amazing', 'bucket', '45%', '');
 
-    function beer(name, description, glass, abv, label){
+    function beer(name, description, glass, abv, label, style){
         this.name = name;
         this.description = description;
         this.glass = glass;
         this.abv = abv;
         this.label = label;
+        this.style = style;
     }
 
     service.getBeer = function(searchTerm){
+        // Queries backend node server for list of beers
+        // Adds resulting list to the service list pulling out relevant data
+        //
+        //
         var obj = {beer: searchTerm}
-        $http.get('/test', {params:obj}).success(function(response){
-
+        $http.get('/search', {params:obj}).success(function(response){
+            console.log(response)
             var numBeers = 0;
+            var valueList = {
+                    'name': 'response.data[numBeers].name',
+                    'description':'response.data[numBeers].description',
+                    'glass':'response.data[numBeers].glass.name',
+                    'abv':'response.data[numBeers].abv',
+                    'label':'response.data[numBeers].labels.medium',
+                    'style': 'response.data[numBeers].style.shortName'
+                };
+
             while(numBeers<10 && numBeers < response.data.length){
-                console.log(numBeers)
-                if(response.data[numBeers].hasOwnProperty('name')){
-                    var newName = response.data[numBeers].name;
-                }
-                else{
-                    var newName = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('description')){
-                    var newDesc = response.data[numBeers].description;
-                }
-                else{
-                    var newDesc = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('glass')){
-                    var newGlass = response.data[numBeers].glass.name;
-                }
-                else{
-                    var newGlass = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('abv')){
-                    var newAbv = response.data[numBeers].abv;
-                }
-                else{
-                    var newAbv = '';
-                }
-                if(response.data[numBeers].hasOwnProperty('labels')){
-                    var newLabel = response.data[numBeers].labels.medium;
-                }
-                else{
-                    var newLabel = '';
+
+                var newBeer = new beer('', '', '', '', '', '');
+
+                for(attr in valueList){
+                    if(response.data[numBeers].hasOwnProperty(attr)){
+                        newBeer[attr]=eval(valueList[attr]);
+                    }
                 }
 
-
-                var newBeer = new beer(newName, newDesc, newGlass, newAbv, newLabel);
                 service.list[numBeers]=newBeer;
                 numBeers++;
             };
-            console.log(service.list)
         })
+
+        service.setSelectedBeer = function(beer){
+            service.selectedBeer = beer;
+        }
     }
     return service;
 });
