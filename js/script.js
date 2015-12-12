@@ -6,9 +6,13 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/search.html',
             controller: 'searchController'
         })
-        .when('/results', {
-            templateUrl: 'partials/results.html',
-            controller: 'resultsController'
+        .when('/list', {
+            templateUrl: 'partials/list.html',
+            controller: 'listController'
+        })
+        .when('/beer', {
+            templateUrl: 'partials/beer.html',
+            controller: 'listController'
         })
         .otherwise({
             redirectTo: '/'
@@ -20,33 +24,67 @@ app.controller('searchController', function($scope, beerService){
     $scope.submitSearch = function(searchTerm) {
         beerService.getBeer(searchTerm);
     }
-
 });
 
+app.controller('listController', function($scope, beerService){
+    $scope.list=beerService.list;
+    $scope.selectedBeer = beerService.selectedBeer;
+    $scope.selectBeer = function(beer) {
+        beerService.setSelectedBeer(beer);
+        console.log(beer)
+    }
+
+});
 
 app.factory('beerService', function($http){
     service={};
+    service.list=[];
+    service.selectedBeer= new beer("Jon's sauce", 'So good it\'s amazing', 'bucket', '45%', '');
+
+    function beer(name, description, glass, abv, label, style){
+        this.name = name;
+        this.description = description;
+        this.glass = glass;
+        this.abv = abv;
+        this.label = label;
+        this.style = style;
+    }
+
     service.getBeer = function(searchTerm){
-        $http.get(' http://api.brewerydb.com/v2/?key=acacd14c7d296235ee91b5bcea5e64ed').success(function(response){
-            console.log(response);
-        })
+        // Queries backend node server for list of beers
+        // Adds resulting list to the service list pulling out relevant data
+        //
+        //
+        var obj = {beer: searchTerm}
+        $http.get('/search', {params:obj}).success(function(response){
+            console.log(response)
+            var numBeers = 0;
+            var valueList = {
+                    'name': 'response.data[numBeers].name',
+                    'description':'response.data[numBeers].description',
+                    'glass':'response.data[numBeers].glass.name',
+                    'abv':'response.data[numBeers].abv',
+                    'label':'response.data[numBeers].labels.medium',
+                    'style': 'response.data[numBeers].style.shortName'
+                };
+
+            while(numBeers<10 && numBeers < response.data.length){
+
+                var newBeer = new beer('', '', '', '', '', '');
+
+                for(attr in valueList){
+                    if(response.data[numBeers].hasOwnProperty(attr)){
+                        newBeer[attr]=eval(valueList[attr]);
+                    }
+                }
+
+                service.list[numBeers]=newBeer;
+                numBeers++;
+            };
+
+        service.setSelectedBeer = function(beer){
+            service.selectedBeer = beer;
+        }
     }
     return service;
-});
-
-angular.module('ui.bootstrap.demo').controller('CarouselDemoCtrl', function ($scope) {
-  $scope.myInterval = 5000;
-  $scope.noWrapSlides = false;
-  var slides = $scope.slides = [];
-  $scope.addSlide = function() {
-    var newWidth = 600 + slides.length + 1;
-    slides.push({
-      image: '//placekitten.com/' + newWidth + '/300',
-      text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-        ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-    });
-  };
-  for (var i=0; i<4; i++) {
-    $scope.addSlide();
-  }
 });

@@ -5,7 +5,7 @@
     <!--styles-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><!-- integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">-->
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='css/styles.css'/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,17 +32,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Cheers</a>
+      <a class="navbar-brand myLogo" href="#"><img src="https://cheersboston.com/assets/img/cheers-logo.png" alt="Cheers" style="width:42px;height:42px;border:0"></a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" ng-model='searchTerm'>
-        </div>
-        <button type="submit" class="btn btn-default" ng-click='submitSearch(searchTerm)'>Search</button>
-      </form>
+
       <ul class="nav navbar-nav navbar-right">
       </ul>
       <ul class="nav navbar-nav">
@@ -54,6 +47,7 @@
 </nav>
 <ng-view></ng-view>
 
+<<<<<<< HEAD
 <!-- <div ng-controller="CarouselDemoCtrl">
   <div style="height: 305px">
     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
@@ -133,3 +127,9 @@
 
 </html>
 
+=======
+
+</body>
+
+</html>
+>>>>>>> 6d843a6b1d10c16a0e2f80706b2cb5f9269068e6

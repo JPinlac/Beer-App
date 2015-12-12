@@ -1,0 +1,39 @@
+{
+  "name": "cheers",
+  "version": "1.0.0",
+  "description": "beer",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^1.5.0",
+    "body-parser": "^1.14.1",
+    "concat-stream": "^1.5.1",
+    "cors": "^2.7.1",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "frisby": "^0.8.5",
+    "jasmine-node": "^1.14.5",
+    "mongodb": "^2.1.0",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7",
+    "request": "^2.67.0",
+    "stormpath": "^0.15.1",
+    "validator": "^4.4.0"
+  },
+  "devDependencies": {
+    "cors": "^2.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/der-Racker/Beer-App.git"
+  },
+  "author": "Team Beer-App",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/der-Racker/Beer-App/issues"
+  },
+  "homepage": "https://github.com/der-Racker/Beer-App#readme"
+}

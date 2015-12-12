@@ -1,22 +1,37 @@
-
-
-
-.carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-
-border-radius() {
-   -webkit-border-radius: arguments;
-   -moz-border-radius: arguments;
-   border-radius: arguments;
- }
-
- body a {
-   font: 12px/1.4 "Lucida Grande", Arial, sans-serif;
-   background: green;
-   color: #DEB887;
-   margin-left: 90px;
-   margin-right: 90px;
- }
+#picture {
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+}
+#description {
+  background-color: green;
+  height: 50px;
+  width: 50px;
+}
+#name {
+  background-color: red;
+  height: 50px;
+  width: 50px;
+}
+#abv {
+  background-color: yellow;
+  height: 50px;
+  width: 50px;
+}
+#glass {
+  background-color: orange;
+  height: 50px;
+  width: 50px;
+}
+body {
+  /*background-image: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg");*/
+  background-color: #A0522D;
+}
+.carousel-inner {
+  height: 400px;
+  width: 1024px;
+}
+.carouselpics {
+  height: 300px;
+  width: 900px;
+}
