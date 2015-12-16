@@ -20,8 +20,8 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
-	font-size: 5em;
-  padding: 50px 50px 50px 50px;
+	font-size: 3em;
+  /*padding: 50px 50px 50px 50px;*/
 }
 .carouselpics {
   height: 200px;

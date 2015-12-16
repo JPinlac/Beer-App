@@ -1,5 +1,17 @@
 var app = angular.module('myApp', ['ngRoute','ui.bootstrap','ui.router']);
-
+app.config(function($stateprovider, $urlRouterProvider, $locationProvider){
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
+})
+    .run(function($stormpath, $rootScope, $state){
+        $stormpath.uiRouter({
+            loginState: 'login',
+            defaultPostLoginState:'home'
+        });
+        $rootScope.$on('$sessionEnd', function(){
+            $state.transitionTo('login');
+        });
+    });
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/', {
