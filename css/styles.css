@@ -45,10 +45,11 @@ body {
   font-family: 'Special Elite', cursive;
 }
 .list {
-  background-color: rgba(128,128,128,0.5);
+  background-color: rgba(128,128,128,0.75);
   padding: 50px 30px 50px 30px;
   font-size: .5em;
   border-radius: 25px;
+  font-family: 'Special Elite', cursive;
 }
 .btn {
   font-family: 'Special Elite', cursive;
@@ -56,7 +57,11 @@ body {
 .form-control{
   font-family: 'Special Elite', cursive;
 }
-
-#relatedBeerFont {
-  font-size: 50px;
+.others {
+  color: #000000;
+  font-size: .5em;
+  font-family: 'Special Elite', cursive;
+  background-color: rgba(128,128,128,0.5);
+  padding: 50px 30px 50px 30px;
+  border-radius: 25px;
 }
