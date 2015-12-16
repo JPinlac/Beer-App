@@ -82,10 +82,10 @@ app.factory('beerService', function($http){
                 numBeers++;
             };
         })
-
-        service.setSelectedBeer = function(beer){
-            service.selectedBeer = beer;
-        }
     }
+    service.setSelectedBeer = function(beer){
+        service.selectedBeer = beer;
+    }
+    
     return service;
 });
