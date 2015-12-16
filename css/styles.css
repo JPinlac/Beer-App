@@ -1,36 +1,17 @@
-#picture {
-  /*background-color: blue;
-  height: 50px;
-  width: 50px;*/
-}
 .picture{
   border: 5px ridge #000000;
   max-width:100%;
   max-height:100%;
 }
 #description {
-  /*background-color: green;*/
-  /*height: 50px;
-  width: 50px;*/
   text-align: center;
   color: #000000;
-  /*text-shadow: 2px 2px #FFFFFF;*/
   font-size: .5em;
 }
-#name {
-  /*background-color: red;*/
-  /*height: 50px;
-  width: 50px;*/
-}
-#abv {
-  /*background-color: yellow;*/
-  /*height: 50px;
-  width: 50px;*/
-}
-#glass {
-  /*background-color: orange;*/
-  /*height: 50px;
-  width: 50px;*/
+#description{
+  background-color: rgba(128,128,128,0.75);
+  padding: 50px 50px 50px 50px;
+  border-radius: 25px;
 }
 body {
   background: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg") no-repeat center center fixed;
@@ -38,15 +19,9 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /*background-color: #A0522D;*/
   font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
 	font-size: 5em;
-	/*font-style: normal;
-	font-variant: normal;
-	font-weight: 500;*/
-	/*line-height: 40px;
-  min-height: 100%;
-  min-width: 1024px;*/
+  padding: 50px 50px 50px 50px;
 }
 .carouselpics {
   height: 200px;
@@ -59,8 +34,25 @@ body {
 }
 #specs{
   color: #000000;
-  font-size: 1em;
+  font-size: .5em;
+  font-family: 'Special Elite', cursive;
+  background-color: rgba(128,128,128,0.5);
+  padding: 50px 30px 50px 30px;
+  border-radius: 25px;
 }
 .search {
   font-size: 1em;
+  font-family: 'Special Elite', cursive;
+}
+.list {
+  background-color: rgba(128,128,128,0.5);
+  padding: 50px 30px 50px 30px;
+  font-size: .5em;
+  border-radius: 25px;
+}
+.btn {
+  font-family: 'Special Elite', cursive;
+}
+.form-control{
+  font-family: 'Special Elite', cursive;
 }
