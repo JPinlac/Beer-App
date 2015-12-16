@@ -1,13 +1,33 @@
 
 var app = angular.module('myApp', ['ngRoute','ui.bootstrap','ui.router', 'stormpath','stormpath.templates']);
-app.config(function($stateprovider, $urlRouterProvider, $locationProvider){
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
+    $stateProvider
+        .state('search', {
+            url: '/',
+            templateUrl: 'partials/search.html',
+            controller: 'searchController'
+        })
+        .state('list', {
+            url: '/list',
+            templateUrl: 'partials/list.html',
+            controller: 'listController'
+        })
+        .state('beer', {
+            url:'/beer',
+            templateUrl: 'partials/beer.html',
+            controller: 'listController'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'partials/login.html'
+        });
 })
     .run(function($stormpath, $rootScope, $state){
         $stormpath.uiRouter({
             loginState: 'login',
-            defaultPostLoginState:'home'
+            defaultPostLoginState:'search'
         });
         $rootScope.$on('$sessionEnd', function(){
             $state.transitionTo('login');
