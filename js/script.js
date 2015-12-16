@@ -22,7 +22,20 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         .state('login', {
             url: '/login',
             templateUrl: 'partials/login.html'
-        });
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: 'partials/register.html'
+        })
+        .state('profile', {
+            url: '/profile',
+            templateUrl: 'partials/profile.html',
+            controller: 'ProfileCtrl',
+            sp: {
+                authenticate: true
+            }
+      });
+
 })
     .run(function($stormpath, $rootScope, $state){
         $stormpath.uiRouter({
