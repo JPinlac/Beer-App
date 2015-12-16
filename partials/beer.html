@@ -1,14 +1,14 @@
 <body class="beerpic">
-  <a href="#/list">Back to Results</a>
+  <a href="#/list"><button type="button" class="btn">Back to Results</button></a>
 
   <div class="row">
-    <div class="col-md-6" id="picture"><img ng-src="{{selectedBeer.labels.medium}}"></div>
+    <div class="col-md-6" id="picture"><img ng-src={{selectedBeer.labels}} id="picture"></div>
     <div class="col-md-6" id="specs">
       <ul>
-        <li id="name">{{selectedBeer.name}}</li>
-        <li id="abv">{{selectedBeer.abv}}</li>
-        <li id="glass">{{selectedBeer.glass}}</li>
-        <li id="style">{{selectedBeer.style}}</li>
+        <li id="name">Name: {{selectedBeer.name}}</li>
+        <li id="abv">Alcohol by Volume(ABV): {{selectedBeer.abv}}</li>
+        <li id="glass">Glass: {{selectedBeer.glass}}</li>
+        <li id="style">Style: {{selectedBeer.style}}</li>
       </ul>
     </div>
   </div>
@@ -17,7 +17,10 @@
     <div class="col-md-12" id="description">{{selectedBeer.description}}</div>
   </div>
 
-  <ul>
-    <li>Similar Beers</li>
+<div class="others">
+  <h1>Enjoying your beer? Try this:</h1>
+   <ul>
+    <li ng-repeat="item in list">{{item.name}}</li>
   </ul>
+</div>
 </body>

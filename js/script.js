@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute','ui.bootstrap']);
+var app = angular.module('myApp', ['ngRoute','ui.bootstrap','ui.router', 'stormpath','stormpath.templates']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -19,14 +19,17 @@ app.config(['$routeProvider', function($routeProvider){
         });
 }]);
 
-
 app.controller('searchController', function($scope, beerService){
-    $scope.submitSearch = function(searchTerm) {
-        beerService.getBeer(searchTerm);
+    $scope.submitSearch = function(searchTerm,amount) {
+        beerService.getBeer(searchTerm,amount);
     }
 });
 
 app.controller('listController', function($scope, beerService){
+     $scope.submitSearch = function(searchTerm,amount2, beer) {
+        beerService.setSelectedBeer(beer);
+        beerService.getBeer(searchTerm,amount2);
+    }
     $scope.list=beerService.list;
     $scope.selectedBeer = beerService.selectedBeer;
     $scope.selectBeer = function(beer) {
@@ -50,27 +53,31 @@ app.factory('beerService', function($http){
         this.style = style;
     }
 
-    service.getBeer = function(searchTerm){
+    service.getBeer = function(searchTerm,amount){
         // Queries backend node server for list of beers
         // Adds resulting list to the service list pulling out relevant data
         //
         //
+
         var obj = {beer: searchTerm}
         $http.get('/search', {params:obj}).success(function(response){
-            console.log(response)
+            console.log(response);
+            service.list.length=0;
             var numBeers = 0;
-            var valueList = {
+             valueList = {
                     'name': 'response.data[numBeers].name',
                     'description':'response.data[numBeers].description',
                     'glass':'response.data[numBeers].glass.name',
                     'abv':'response.data[numBeers].abv',
-                    'label':'response.data[numBeers].labels.medium',
+                    'labels':'response.data[numBeers].labels.medium',
                     'style': 'response.data[numBeers].style.shortName'
                 };
 
-            while(numBeers<10 && numBeers < response.data.length){
+            while(numBeers<amount && numBeers < response.data.length){
 
-                var newBeer = new beer('', '', '', '', '', '');
+
+                var newBeer = new beer('', 'No Description Provided', 'Pint', 'None Provided', 'None Provided', '');
+
 
                 for(attr in valueList){
                     if(response.data[numBeers].hasOwnProperty(attr)){
