@@ -26,7 +26,7 @@ app.controller('searchController', function($scope, beerService){
     }
 });
 
-app.controller('listController', function($scope, beerService){
+app.controller('listController', function($scope, beerService, foursquareService){
     $scope.list=beerService.list;
     $scope.selectedBeer = beerService.selectedBeer;
     $scope.selectBeer = function(beer) {
@@ -34,7 +34,13 @@ app.controller('listController', function($scope, beerService){
         console.log(beer)
     }
 
+    foursquareService.setData
+
+
 });
+
+
+
 
 app.factory('beerService', function($http){
     service={};
@@ -55,7 +61,7 @@ app.factory('beerService', function($http){
         // Adds resulting list to the service list pulling out relevant data
         //
         //
-        var obj = {beer: searchTerm}
+        var obj = {beer: searchTerm};
         $http.get('/search', {params:obj}).success(function(response){
             console.log(response)
             var numBeers = 0;
@@ -81,10 +87,48 @@ app.factory('beerService', function($http){
                 service.list[numBeers]=newBeer;
                 numBeers++;
             };
+        });
+    }
 
         service.setSelectedBeer = function(beer){
             service.selectedBeer = beer;
         }
-    }
+
     return service;
 });
+var FOURSQ_SECRET = "WBSJVPI3S5RFQE2JORCN0WEGV3K11OVKSB2CRCAQPO2B3ULQ";
+var FOURSQ_ID = "QD1ZIXEXF3GJFVQGEYLRABCS2JPBVR2N5Q1GJUZ1QSIB5L4A";
+
+app.factory("foursquareService", function($http) {
+    console.log("in fact");
+    $http.get("https://api.foursquare.com/v2/venues/search?client_id="+FOURSQ_ID+"&client_secret="+FOURSQ_SECRET+"&v=20151215&ll=42.328,-83.044&query=coors").success(function(response) {
+            
+            console.log(response);
+
+            var container = results;
+            container.setData = function(results){
+                service.getData = results;
+
+            }
+        });
+    
+    return {};//container;
+});
+
+// $http.get("https://api.foursquare.com/v2/
+// checkins/4d627f6814963704dc28ff94?signature=LPtzP4edmpbaspdKhI9-892UoFM
+// " + $scope.checkin)
+//         .success(function(response) {
+//           $scope.related = response;
+//         });
+//     }
+
+//     $scope.update = function(movie) {
+//       $scope.search = movie.Title;
+//       $scope.change();
+//     };
+
+//     $scope.select = function() {
+//       this.setSelectionRange(0, this.value.length);
+//     }
+  //"https://api.foursquare.com/v2/checkins/4d627f6814963704dc28ff94?signature=LPtzP4edmpbaspdKhI9-892UoFM&oauth_token=XAHZSUHUEUGZOJV2JNMFZY3JNKVROPPXWMDOY2O2RUFAP0CD&v=20151212"
