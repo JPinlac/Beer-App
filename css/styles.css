@@ -61,7 +61,7 @@ a {
   color: #000000;
 }
 .container {
-    padding: 50px 30px 50px 30px;
+    margin: 50px 30px 50px 30px;
 }
 .center-block {
     display: block;
