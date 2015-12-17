@@ -7,6 +7,7 @@
   text-align: center;
   color: #000000;
   font-size: .5em;
+  font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
 }
 #description{
   background-color: rgba(128,128,128,0.75);
@@ -15,12 +16,7 @@
 }
 body {
   background: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
-	font-size: 5em;
+	font-size: 3em;
 }
 .carouselpics {
   height: 200px;

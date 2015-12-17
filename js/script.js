@@ -1,23 +1,70 @@
-var app = angular.module('myApp', ['ngRoute','ui.bootstrap']);
 
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider
-        .when('/', {
+var app = angular.module('myApp', ['ngRoute','ui.bootstrap','ui.router', 'stormpath','stormpath.templates']);
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true);
+    $stateProvider
+        .state('search', {
+            url: '/',
             templateUrl: 'partials/search.html',
             controller: 'searchController'
         })
-        .when('/list', {
+        .state('list', {
+            url: '/list',
             templateUrl: 'partials/list.html',
             controller: 'listController'
         })
-        .when('/beer', {
+        .state('beer', {
+            url:'/beer',
             templateUrl: 'partials/beer.html',
             controller: 'listController'
         })
-        .otherwise({
-            redirectTo: '/'
+        .state('login', {
+            url: '/login',
+            templateUrl: 'partials/login.html'
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: 'partials/register.html'
+        })
+        .state('profile', {
+            url: '/profile',
+            templateUrl: 'partials/profile.html',
+            controller: 'ProfileCtrl',
+            sp: {
+                authenticate: true
+            }
+      });
+
+})
+    .run(function($stormpath, $rootScope, $state){
+        $stormpath.uiRouter({
+            loginState: 'login',
+            defaultPostLoginState:'search'
         });
-}]);
+        $rootScope.$on('$sessionEnd', function(){
+            $state.transitionTo('login');
+        });
+    });
+
+// app.config(['$routeProvider', function($routeProvider){
+//     $routeProvider
+//         .when('/', {
+//             templateUrl: 'partials/search.html',
+//             controller: 'searchController'
+//         })
+//         .when('/list', {
+//             templateUrl: 'partials/list.html',
+//             controller: 'listController'
+//         })
+//         .when('/beer', {
+//             templateUrl: 'partials/beer.html',
+//             controller: 'listController'
+//         })
+//         .otherwise({
+//             redirectTo: '/'
+//         });
+// }]);
 
 app.controller('searchController', function($scope, beerService){
     $scope.submitSearch = function(searchTerm,amount) {
@@ -89,10 +136,10 @@ app.factory('beerService', function($http){
                 numBeers++;
             };
         })
-
-        service.setSelectedBeer = function(beer){
-            service.selectedBeer = beer;
-        }
     }
+    service.setSelectedBeer = function(beer){
+        service.selectedBeer = beer;
+    }
+    
     return service;
 });
