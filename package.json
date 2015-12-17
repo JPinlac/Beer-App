@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "async": "^1.5.0",
-    "body-parser": "^1.14.1",
+    "body-parser": "^1.14.2",
     "concat-stream": "^1.5.1",
     "cors": "^2.7.1",
     "errorhandler": "^1.4.2",
