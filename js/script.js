@@ -1,5 +1,5 @@
 
-var app = angular.module('myApp', ['ngRoute','ui.bootstrap','ui.router', 'stormpath','stormpath.templates']);
+var app = angular.module('myApp', ['ui.bootstrap','ui.router', 'stormpath','stormpath.templates']);
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         .state('profile', {
             url: '/profile',
             templateUrl: 'partials/profile.html',
-            controller: 'ProfileCtrl',
+            controller: 'profileCtrl',
             sp: {
                 authenticate: true
             }
@@ -46,25 +46,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
             $state.transitionTo('login');
         });
     });
-
-// app.config(['$routeProvider', function($routeProvider){
-//     $routeProvider
-//         .when('/', {
-//             templateUrl: 'partials/search.html',
-//             controller: 'searchController'
-//         })
-//         .when('/list', {
-//             templateUrl: 'partials/list.html',
-//             controller: 'listController'
-//         })
-//         .when('/beer', {
-//             templateUrl: 'partials/beer.html',
-//             controller: 'listController'
-//         })
-//         .otherwise({
-//             redirectTo: '/'
-//         });
-// }]);
 
 app.controller('searchController', function($scope, beerService){
     $scope.submitSearch = function(searchTerm,amount) {
@@ -85,6 +66,41 @@ app.controller('listController', function($scope, beerService){
     }
 
 });
+
+app.controller('profileCtrl', function ($scope, $http, $timeout) {
+    $scope.saving = false;
+    $scope.saved = false;
+    $scope.error = null;
+    $scope.formModel = {
+      givenName: $scope.user.givenName,
+      surname: $scope.user.surname,
+      favoriteColor: $scope.user.customData.favoriteColor
+    };
+
+    $scope.submit = function() {
+      $scope.error = null;
+      $scope.saving = true;
+      $http.post('/profile',$scope.formModel)
+        .then(function(){
+          $scope.saved = true;
+          $timeout(function(){
+            $scope.saved = false;
+          },2000);
+        })
+        .catch(function(httpResponse){
+          $scope.error = httpResponse &&
+            httpResponse.data ? (
+              httpResponse.data.userMessage ||
+              httpResponse.data.message ||
+              'An error has occured'
+            ) : 'Server error';
+        })
+        .finally(function(){
+          $scope.saving = false;
+        });
+    };
+});
+
 
 app.factory('beerService', function($http){
     service={};

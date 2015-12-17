@@ -1,6 +1,6 @@
 // server.js
 var http = require('http');
-var cors = require('cors');
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 var request = require('request');
@@ -18,7 +18,10 @@ app.get('/search', function(req, res){
 });
 
 app.use(stormpath.init(app, {
-    website: true
+    website: true,
+    expand: {
+        customData: true
+    }
 }))
 
 app.use(express.static(__dirname + '/'));
@@ -30,3 +33,5 @@ app.on('stormpath.ready', function() {
 app.get("/", function(req, res) {
   res.sendfile('./index.html'); //load single view file
 });
+
+app.post('/profile', bodyParser.json(), stormpath.loginRequired, require('./routes/profile'));
