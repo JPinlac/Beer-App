@@ -1,10 +1,10 @@
-<body class="beerpic">
-<div class="container">
+<body class="container">
+<div>
   <a href="/"><button type="button" class="btn">Back to Search</button></a>
 </div>
 
   <h3>Try These...</h3>
-  <div class="list">
+  <div class="list" class="container">
     <ul>
 
         <a href="/beer" ng-repeat="item in list" ng-click="submitSearch(item.style,1,item)"><li>{{item.name}}</li></a>
