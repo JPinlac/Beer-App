@@ -34,4 +34,4 @@ app.get("/", function(req, res) {
   res.sendfile('./index.html'); //load single view file
 });
 
-app.post('/profile', bodyParser.json(), stormpath.loginRequired, require('./routes/profile'));
+app.post('/profile', bodyParser.json(), stormpath.loginRequired, require('./js/customdata'));
