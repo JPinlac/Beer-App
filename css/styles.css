@@ -21,7 +21,6 @@ body {
   background-size: cover;
   font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
 	font-size: 5em;
-  padding: 50px 50px 50px 50px;
 }
 .carouselpics {
   height: 200px;
@@ -53,6 +52,7 @@ body {
 }
 .btn {
   font-family: 'Special Elite', cursive;
+
 }
 .form-control{
   font-family: 'Special Elite', cursive;
@@ -64,4 +64,7 @@ body {
   background-color: rgba(128,128,128,0.5);
   padding: 50px 30px 50px 30px;
   border-radius: 25px;
+}
+a {
+  font-family: 'Special Elite', cursive;
 }
