@@ -1,4 +1,4 @@
-@media screen and (min-width: 480px) and (max-width:1500px){
+@media screen and (min-width: 480px) and (max-width:800px){
 
 .picture{
   border: 5px ridge #000000;
@@ -146,7 +146,7 @@ li{
   padding: 3px;
 }
 }
-@media screen and (min-width:1501px){
+@media screen and (min-width:801px){
 
 .picture{
   border: 5px ridge #000000;
