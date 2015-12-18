@@ -1,9 +1,12 @@
+@media screen and (min-width: 480px){
+
 .picture{
   border: 5px ridge #000000;
   max-width:100%;
   max-height:100%;
   margin:10px;
 }
+
 .myLogo{
   font-size: 2em;
 }
@@ -67,4 +70,79 @@ a {
  }
 li{
   padding: 3px;
+}
+}
+@media screen and (max-width:399px){
+
+.picture{
+  border: 5px ridge #000000;
+  max-width:100%;
+  max-height:100%;
+  margin:10px;
+}
+
+.myLogo{
+  font-size: 2em;
+}
+
+body {
+  background: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg") no-repeat center center fixed;
+  font-size: 1.5em;
+  font-family: 'Special Elite', cursive;
+  height:100%;
+  width: 100%;
+}
+.intro{
+  position:relative;
+  margin:auto;
+  top:30%;
+}
+.jcont{
+  position: absolute;
+  left: 5%;
+  height: 70%;
+  width: 90%;
+  text-align:center;
+  background-color:rgba(242, 242, 242, .95);
+  border-radius: 15px;
+  overflow:visible;
+}
+.jbeer{
+  width: 90%;
+  background-color:rgba(242, 242, 242, .95);
+  border-radius: 15px;
+}
+.search {
+  font-size: 1em;
+}
+
+.jlist{
+  text-align: left;
+  font-size: 1em;
+}
+.btn {
+  position: relative;
+  top: 14em;
+}
+.form-control{
+  position: relative;
+  top:45%;
+  width: 90%;
+  left:5%;
+}
+
+a {
+  color: #000000;
+}
+.container {
+
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+li{
+  padding: 3px;
+}
 }
