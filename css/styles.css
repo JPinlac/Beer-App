@@ -21,10 +21,19 @@ body {
   margin:auto;
   top:30%;
 }
-.jcont{
+.jsearch{
   position: absolute;
   left: 5%;
   height: 70%;
+  width: 90%;
+  text-align:center;
+  background-color:rgba(242, 242, 242, .95);
+  border-radius: 15px;
+  overflow:visible;
+}
+.jcont{
+  position: absolute;
+  left: 5%;
   width: 90%;
   text-align:center;
   background-color:rgba(242, 242, 242, .95);
@@ -78,7 +87,7 @@ li{
 @media screen and (min-width:801px) and (max-width:1000px){
   .jbtn {
     position: relative;
-    top: 20em;
+    top: 18em;
   }
 }
 @media screen and (min-width:400px) and (max-width:800px){
