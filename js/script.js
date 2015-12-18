@@ -34,7 +34,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
             sp: {
                 authenticate: true
             }
-      });
+        })
+        .state('forgot', {
+            url: '/forgot',
+            templateUrl: 'partials/forgot-password.html'
+        });
 
 })
     .run(function($stormpath, $rootScope, $state){
