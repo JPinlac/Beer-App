@@ -7,15 +7,7 @@
 .myLogo{
   font-size: 2em;
 }
-#description {
-  text-align: center;
-  color: #000000;
-  font-size: 1em;
-}
-#description{
-  background-color: rgba(128,128,128,0.75);
-  border-radius: 25px;
-}
+
 body {
   background: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg") no-repeat center center fixed;
 	font-size: 1.5em;
@@ -35,37 +27,30 @@ body {
   background-color:rgba(242, 242, 242, .95);
   border-radius: 15px;
 }
-
-#specs{
-  color: #000000;
-  font-size: 1em;
-  background-color: rgba(128,128,128,0.5);
-  border-radius: 25px;
+.jbeer{
+  width: 90%;
+  background-color:rgba(242, 242, 242, .95);
+  border-radius: 15px;
 }
 .search {
   font-size: 1em;
 }
-.list {
-  background-color: rgba(128,128,128,0.75);
+
+.jlist{
+  text-align: left;
   font-size: 1em;
-  border-radius: 25px;
 }
 .btn {
   position: relative;
-  top: 20em;
+  top: 17em;
 }
 .form-control{
   position: relative;
-  top:55%;
+  top:50%;
   width: 90%;
   left:5%;
 }
-.others {
-  color: #000000;
-  font-size: 1em;
-  background-color: rgba(128,128,128,0.5);
-  border-radius: 25px;
-}
+
 a {
   color: #000000;
 }

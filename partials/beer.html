@@ -1,5 +1,4 @@
-<body class="container">
-  <a href="/list"><button type="button" class="btn">Back to Results</button></a>
+<div class="container jbeer">
 
   <div class="row">
     <div class="col-md-6" id="picture"><img ng-src={{selectedBeer.labels}} id="picture" class="center-block" ></div>
@@ -17,10 +16,10 @@
     <div class="col-md-12" id="description">{{selectedBeer.description}}</div>
   </div>
 
-<div class="others">
-  <h1>Enjoying your beer? Try this:</h1>
-   <ul>
-    <li ng-repeat="item in list">{{item.name}}</li>
-  </ul>
+  <div>
+    <h1>Enjoying your beer? Try this:</h1>
+    <ul>
+      <li ng-repeat="item in list">{{item.name}}</li>
+    </ul>
+  </div>
 </div>
-</body>
