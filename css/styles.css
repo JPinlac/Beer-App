@@ -19,12 +19,11 @@ body {
 .intro{
   position:relative;
   margin:auto;
-  top:30%;
+  margin-top:30%;
 }
 .jsearch{
   position: absolute;
   left: 5%;
-  height: 70%;
   width: 90%;
   text-align:center;
   background-color:rgba(242, 242, 242, .95);
@@ -55,11 +54,12 @@ body {
 }
 .jbtn {
   position: relative;
-  top: 16em;
+  margin-top:5%;
+  margin-bottom:5%;
 }
 .form-control{
   position: relative;
-  top:45%;
+  margin-top:15%;
   width: 90%;
   left:5%;
 }
@@ -78,27 +78,4 @@ a {
 li{
   padding: 3px;
 }
-@media screen and (min-width:1001px){
-  .jbtn {
-    position: relative;
-    top: 22em;
-  }
-}
-@media screen and (min-width:801px) and (max-width:1000px){
-  .jbtn {
-    position: relative;
-    top: 18em;
-  }
-}
-@media screen and (min-width:400px) and (max-width:800px){
-  .jbtn {
-    position: relative;
-    top: 16em;
-  }
-}
-@media screen and (max-width:399px){
-  .jbtn {
-    position: relative;
-    top: 14em;
-  }
-}
+
