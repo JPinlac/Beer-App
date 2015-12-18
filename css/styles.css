@@ -12,11 +12,13 @@ body {
   background: url("http://cdn.zmescience.com/wp-content/uploads/2014/12/o-BEER-facebook.jpg") no-repeat center center fixed;
 	font-size: 1.5em;
   font-family: 'Special Elite', cursive;
+  height:100%;
+  width: 100%;
 }
 .intro{
   position:relative;
   margin:auto;
-  top:35%;
+  top:30%;
 }
 .jcont{
   position: absolute;
@@ -26,6 +28,7 @@ body {
   text-align:center;
   background-color:rgba(242, 242, 242, .95);
   border-radius: 15px;
+  overflow:visible;
 }
 .jbeer{
   width: 90%;
@@ -42,11 +45,11 @@ body {
 }
 .btn {
   position: relative;
-  top: 17em;
+  top: 16em;
 }
 .form-control{
   position: relative;
-  top:50%;
+  top:45%;
   width: 90%;
   left:5%;
 }
